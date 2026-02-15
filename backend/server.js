@@ -1,5 +1,9 @@
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
+
+const connectDB = require("./config/db");
 
 const app = express();
 app.use(cors());
@@ -9,10 +13,13 @@ app.use(express.json());
 app.get("/", (req, res) => {
     res.send("Dream closet api running");
 });
- 
+connectDB();
+
+
 const port = 3000;
 
-app.listen(port,() => {
-    console.log(`server is running on port{port}`);
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+
 
 });
