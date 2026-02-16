@@ -4,24 +4,28 @@ const express = require("express");
 const cors = require("cors");
 
 const connectDB = require("./config/db");
-console.log("ENV KEYS:", Object.keys(process.env));
-console.log("MONGO_URI:", process.env.MONGO_URI);
+const DreamRoute = require("./routes/DreamRoute");
 
 const app = express();
+
+// Connect to MongoDB
+connectDB();
+
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-
+// Test route
 app.get("/", (req, res) => {
-    res.send("Dream closet api running");
+    res.send("DreamCloset API running...");
 });
-connectDB();
 
+// Dream routes
+app.use("/api/dreams", DreamRoute);
 
-const port = 3000;
+// Port
+const PORT = process.env.PORT || 3000;
 
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-
-
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
