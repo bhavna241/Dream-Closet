@@ -1,30 +1,15 @@
 const mongoose = require("mongoose");
 
 const dreamSchema = new mongoose.Schema({
-    title: {
+    title: { type: String, required: true },
+    type: { type: String, required: true },
+    note: String,
+    status: {
         type: String,
+        enum: ["pending", "completed"],
+        default: "pending",
     },
-    description: {
-        type: String
-    },
-    note: {
-        type: String
-    },
-    link: {
-        type: String
-    },
-    type: {
-        type: String,   // product or activity
-        required: true
-    },
-    completed: {
-        type: Boolean,
-        default: false
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now
-    }
-});
+    completedAt: Date,
+}, { timestamps: true });
 
 module.exports = mongoose.model("Dream", dreamSchema);

@@ -39,7 +39,7 @@ exports.updateDream = async (req, res) => {
 exports.deleteDream = async (req, res) => {
     try {
         await Dream.findByIdAndDelete(req.params.id);
-        res.json({ message: "Dream deleted successfully" });
+        res.status(200).json({ message: "Dream deleted successfully" });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
