@@ -20,6 +20,9 @@ app.use(express.json());
 app.get("/", (req, res) => {
     res.send("DreamCloset API running...");
 });
+const authRoutes = require("./routes/routeauth");
+
+app.use("/api/auth", authRoutes);
 
 // Dream routes
 app.use("/api/dreams", DreamRoute);
