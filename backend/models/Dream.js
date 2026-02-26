@@ -1,15 +1,25 @@
 const mongoose = require("mongoose");
 
-const dreamSchema = new mongoose.Schema({
-    title: { type: String, required: true },
-    type: { type: String, required: true },
-    note: String,
-    status: {
-        type: String,
-        enum: ["pending", "completed"],
-        default: "pending",
+const dreamSchema = new mongoose.Schema(
+    {
+        title: { type: String, required: true },
+        type: { type: String, required: true },
+        note: String,
+        status: {
+            type: String,
+            enum: ["pending", "completed"],
+            default: "pending",
+        },
+        completedAt: Date,
+
+        // 🔐 ADD THIS
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+            required: true,
+        },
     },
-    completedAt: Date,
-}, { timestamps: true });
+    { timestamps: true }
+);
 
 module.exports = mongoose.model("Dream", dreamSchema);
