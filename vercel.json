@@ -1,0 +1,11 @@
+{
+    "builds": [
+        {
+            "src": "dream-canvas/package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "dream-canvas/dist"
+            }
+        }
+    ]
+}
