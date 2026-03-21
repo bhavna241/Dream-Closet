@@ -3,11 +3,16 @@ const Dream = require("../models/Dream");
 // 🔹 Create Dream
 exports.createDream = async (req, res) => {
     try {
-        const { title, type, note } = req.body;
+        const { title, description, type, priority, productLink, targetDate, imageUrl, note } = req.body;
 
         const dream = await Dream.create({
             title,
+            description,
             type,
+            priority,
+            productLink,
+            targetDate,
+            imageUrl,
             note,
             user: req.user._id,
         });
@@ -43,7 +48,12 @@ exports.updateDream = async (req, res) => {
         dream.status = req.body.status ?? dream.status;
         dream.completedAt = req.body.completedAt ?? dream.completedAt;
         dream.title = req.body.title ?? dream.title;
+        dream.description = req.body.description ?? dream.description;
         dream.type = req.body.type ?? dream.type;
+        dream.priority = req.body.priority ?? dream.priority;
+        dream.productLink = req.body.productLink ?? dream.productLink;
+        dream.targetDate = req.body.targetDate ?? dream.targetDate;
+        dream.imageUrl = req.body.imageUrl ?? dream.imageUrl;
         dream.note = req.body.note ?? dream.note;
 
         const updatedDream = await dream.save();
