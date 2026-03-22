@@ -264,7 +264,7 @@ const Dashboard = () => {
                 <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mb-6">
                   <Sparkles className="h-12 w-12 text-primary" />
                 </div>
-                <h3 className="text-2xl font-heading font-bold mb-2">Your Dream Closet is Empty</h3>
+                <h3 className="text-2xl font-heading font-bold mb-2">Your DreamCloset is Empty</h3>
                 <p className="text-muted-foreground max-w-md">
                   Start adding products you want to buy or activities you want to experience. Your dreams belong here!
                 </p>

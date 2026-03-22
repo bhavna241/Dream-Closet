@@ -1,8 +1,8 @@
-# Dream-Closet
+# DreamCloset
 
 ## Project info
 
-A Dream Closet Application.
+DreamCloset – Track Your Dreams & Goals.
 
 ## Getting Started
 
