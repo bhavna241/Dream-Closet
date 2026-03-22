@@ -14,9 +14,6 @@ const app = express();
 // Connect to MongoDB
 connectDB();
 
-// Middleware
-const cors = require("cors");
-
 app.use(cors({
     origin: [
         "http://localhost:8080",
