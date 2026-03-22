@@ -15,8 +15,13 @@ const app = express();
 connectDB();
 
 // Middleware
+const cors = require("cors");
+
 app.use(cors({
-    origin: [process.env.FRONTEND_URL || "http://localhost:5173", "http://localhost:5173"],
+    origin: [
+        "http://localhost:8080",
+        "https://dream-closet-5tyr.vercel.app"
+    ],
     credentials: true
 }));
 app.use(express.json());
